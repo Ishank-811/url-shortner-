@@ -1,0 +1,38 @@
+body{
+    background-color: rgb(243, 221, 221);
+    height:96vh ; 
+    width: 97%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.urlheading{
+    font-size: 60px!important;
+    color:red; 
+ -webkit-text-stroke:1px black ;
+}
+
+#url{
+    width: 600px;
+    height:40px; 
+    font-size: 30px;
+}
+#submit{
+    height:50px; 
+    width: 200px;
+    border-radius: 10px;
+    background-color: red;
+    font-size: 20px;
+    color:white; 
+     font-weight: 900;
+    -webkit-text-stroke: 1px black;
+}
+
+.short-url{
+    font-size:30px; 
+   
+}
+.short-url a{
+    margin-top:30px;
+    color:black!important;
+}
