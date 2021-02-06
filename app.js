@@ -26,8 +26,8 @@ app.post('/', async(req,res,next)=>{
 try{
 const {url}= req.body;
 if(!url){
-
-     throw createHttperror.BadRequest("provide url please"); 
+   
+      throw createHttperror.BadRequest("provide url please"); 
 } 
 const ifexsit  = await shortURL.findOne({url}); 
 if(ifexsit){
@@ -35,12 +35,10 @@ if(ifexsit){
     return 
 }
 const shortUrl = new shortURL({url:url, shortId:shortId.generate()})
-
-
 const result = await shortUrl.save(); 
 res.render('index', {url_short :`http://localhost:8000/${result.shortId}`})
 }catch(error){
-next(error)
+res.render("index",{error:"provide the url link"})
 }
 })
 
@@ -51,7 +49,6 @@ app.get('/:shortId', async(req,res,next)=>{
 })
 
 
-
 app.use((req,res,next)=>{
     next(createHttperror.NotFound()); 
 })
@@ -59,7 +56,7 @@ app.use((req,res,next)=>{
 
 app.use((req,res,next)=>{
   res.status(err.status||500);
-  res.reder('index', {error:err.message})  
+  res.render('index', {error:err.message})  
 })
 
 
